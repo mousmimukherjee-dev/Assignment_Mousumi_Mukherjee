@@ -4,6 +4,7 @@ let msgContainer = document.querySelector(".msgContainer");
 let btnRestart = document.querySelector("#btnRestart");
 let msg = document.querySelector("#msg");
 
+
 const winPatterns = [
   [0, 1, 2],
   [0, 3, 6],
@@ -15,68 +16,57 @@ const winPatterns = [
   [6, 7, 8],
 ];
 
-
 let turnO = true;
+let count = 0;
 
-
-const resetGame=()=>{
-
+const resetGame = () => {
   let turnO = true;
   enableBoxes();
+};
 
-}
-
-
-const enableBoxes=()=>{
-
-  for (let box of boxes){
-    box.disabled=false;
-    box.innerText='';
-    msgContainer.classList.add('hide');
+const enableBoxes = () => {
+  for (let box of boxes) {
+    box.disabled = false;
+    box.innerText = "";
+    msgContainer.classList.add("hide");
   }
-}
+};
 
-let clickCount=0;
-let winner='';
-
+const gameDraw = () => {
+  msg.innerText = `Game was a Draw.`;
+  msgContainer.classList.remove("hide");
+  disableBoxes();
+};
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     console.log("box was clicked!");
-    clickCount++;
+
     if (turnO) {
       box.innerText = "O";
-      box.classList.add('oClass');
-      turnO = false;}
-      
-    else {
+      box.classList.add("oClass");
+      turnO = false;
+    } else {
       box.innerText = "X";
-      box.classList.add('xClass');
+      box.classList.add("xClass");
       turnO = true;
-      
     }
     box.disabled = true;
-    console.log(clickCount);
+    count++;
 
-    if(clickCount=== 9 && !winner){
+    let isWinner = checkWinner();
 
-      alert('game is draw');
+    if (count === 9 && !isWinner) {
+      gameDraw();
     }
-    
-
-    checkWinner();
-
-    
   });
 });
 
-const disabledBoxes=()=>{
-
-  for (let box of boxes){
-
-    box.disabled=true;
+const disabledBoxes = () => {
+  for (let box of boxes) {
+    box.disabled = true;
   }
-}
+};
 
 const showWinner = (winner) => {
   msg.innerText = `Congratulations! winner is${winner}`;
@@ -96,13 +86,16 @@ const checkWinner = () => {
     if (posVAL1 != "" && posVAL2 != "" && posVAL3 != "") {
       if (posVAL1 === posVAL2 && posVAL2 === posVAL3) {
         console.log("winner!", posVAL1);
-        winner=posVAL1;
+        winner = posVAL1;
         showWinner(posVAL1);
+
+        return true;
       }
+
+      
     }
   }
 };
 
-btnRestart.addEventListener('click',resetGame);
-btn_reset.addEventListener('click',resetGame);
-
+btnRestart.addEventListener("click", resetGame);
+btn_reset.addEventListener("click", resetGame);

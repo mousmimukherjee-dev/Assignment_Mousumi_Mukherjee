@@ -2,12 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: cursive;
 }
 
 body {
   background-color: bisque;
   color: orange;
   text-align: center;
+}
+
+.title {
+
+  font-size: 1.8rem;
+  padding: 1rem;
+  text-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.6);
+  
 }
 
 .container {
@@ -38,58 +47,52 @@ body {
   height: 16vmin;
   width: 16vmin;
   border-radius: 1rem;
-  box-shadow: 0 0 2rem rgba(0,0,0,0.6);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.6);
   border: none;
-  font-size: 8vmin; 
-  background-color: white; 
+  font-size: 8vmin;
+  background-color: white;
   color: black;
 }
 
-#btn_reset{
-
+#btn_reset {
   padding: 0.5rem;
+  margin-top: 1rem;
   border-radius: 8px;
   font-size: 1.25rem;
   background-color: orange;
-  box-shadow: 0 0 2rem rgba(0,0,0,0.6);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.6);
   border: none;
 }
 
-#btnRestart{
-
+#btnRestart {
   padding: 0.5rem;
+  margin-top: 1rem;
   border-radius: 8px;
   font-size: 1.25rem;
   background-color: orange;
-  box-shadow: 0 0 2rem rgba(0,0,0,0.6);
+  box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.6);
   border: none;
-
 }
 
-#msg{
-
+#msg {
   color: white;
   font-size: 6vmin;
 }
-.msgContainer{
-
+.msgContainer {
   height: 30vmin;
   padding: 1rem;
 }
 
-.hide{
-
+.hide {
   display: none;
 }
 
-.oClass{
-
+.oClass {
   color: gray;
-  font-family: 'Times New Roman', Times, serif;
+  
 }
 
-.xClass{
-
-  color: blue;
-  font-family: 'Times New Roman', Times, serif;
+.xClass {
+  color: black;
+  
 }
